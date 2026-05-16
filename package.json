@@ -2,29 +2,26 @@
   "name": "lifeindex",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "npm@11.11.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint .",
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "start": "npm run start --workspace web",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck",
     "check": "biome check .",
     "format": "biome format --write .",
     "format:check": "biome format ."
   },
-  "dependencies": {
-    "next": "16.2.6",
-    "react": "19.2.4",
-    "react-dom": "19.2.4"
-  },
   "devDependencies": {
     "@biomejs/biome": "^2.4.15",
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.2.6",
-    "tailwindcss": "^4",
+    "@workspace/eslint-config": "*",
+    "@workspace/typescript-config": "*",
+    "turbo": "^2.8.17",
     "typescript": "^5"
   }
 }
